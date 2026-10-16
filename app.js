@@ -361,7 +361,7 @@
   }
 
   function jobCard(job, today) {
-    var card = h("article", { class: "job-card", "data-id": job.id });
+    var card = h("article", { class: "job-card dx-card", "data-id": job.id });
     var open = h("a", { class: "job-card__open", href: "#/job/" + job.id });
     add(open, h("h2", { class: "job-card__company", text: job.company || "Untitled" }));
     add(open, h("p", { class: "job-card__role", text: job.role || "" }));
@@ -413,11 +413,11 @@
     var today = core.lisbonToday();
     var groups = core.groupByStage(doc);
     if (!liveJobs().length) {
-      els.main.appendChild(h("p", { class: "hint", text: "No jobs yet. Use + Job to add one." }));
+      els.main.appendChild(h("p", { class: "hint dx-on-bg", text: "No jobs yet. Use + Job to add one." }));
     }
     groups.forEach(function (group) {
       var open = isSectionOpen(group.id);
-      var section = h("section", { class: "stage", "data-stage": group.id });
+      var section = h("section", { class: "stage dx-card", "data-stage": group.id });
       var toggle = h("button", {
         type: "button",
         class: "stage__toggle",
@@ -469,7 +469,7 @@
       }));
     });
     els.main.appendChild(filters);
-    els.main.appendChild(h("p", { class: "hint", text: "Sorted by due date, then stage date." }));
+    els.main.appendChild(h("p", { class: "hint dx-on-bg", text: "Sorted by due date, then stage date." }));
     els.main.appendChild(h("div", { id: "list-results" }));
   }
 
@@ -480,7 +480,7 @@
     var today = core.lisbonToday();
     var jobs = core.sortJobs(core.filterJobs(doc.jobs, listQuery, listStage));
     if (!jobs.length) {
-      host.appendChild(h("p", { class: "empty", text: "No matching jobs" }));
+      host.appendChild(h("p", { class: "empty dx-on-bg", text: "No matching jobs" }));
       return;
     }
     jobs.forEach(function (job) { host.appendChild(jobCard(job, today)); });
@@ -501,11 +501,11 @@
     }
     var projects = liveProjects();
     if (!projects.length) {
-      els.main.appendChild(h("p", { class: "empty", text: "No projects yet." }));
+      els.main.appendChild(h("p", { class: "empty dx-on-bg", text: "No projects yet." }));
       return;
     }
     projects.forEach(function (project, index) {
-      var card = h("article", { class: "job-card", "data-id": project.id });
+      var card = h("article", { class: "job-card dx-card", "data-id": project.id });
       card.appendChild(safeAnchor(project.url, project.title || "Untitled", "job-card__company project-title"));
       if (project.url) {
         var urlRow = h("p", { class: "job-card__link" });
@@ -640,14 +640,14 @@
     if (!current) {
       add(els.main,
         h("a", { class: "text-btn", href: "#/board", text: "Back" }),
-        h("p", { class: "empty", text: "Job not found." })
+        h("p", { class: "empty dx-on-bg", text: "Job not found." })
       );
       return;
     }
     var record = current.record;
     add(els.main, h("a", { class: "text-btn", href: "#/board", text: "Back" }));
-    add(els.main, h("h2", { class: "editor-title", text: current.isNew ? "New job" : (record.company || "Job") }));
-    var form = h("form", { id: "editor" });
+    var form = h("form", { id: "editor", class: "dx-card" });
+    form.appendChild(h("h2", { class: "editor-title", text: current.isNew ? "New job" : (record.company || "Job") }));
     add(form,
       field("company", "Company", textInput("company", record.company)),
       field("role", "Role", textInput("role", record.role)),
@@ -696,14 +696,14 @@
     if (!current) {
       add(els.main,
         h("a", { class: "text-btn", href: "#/portfolio", text: "Back" }),
-        h("p", { class: "empty", text: "Project not found." })
+        h("p", { class: "empty dx-on-bg", text: "Project not found." })
       );
       return;
     }
     var record = current.record;
     add(els.main, h("a", { class: "text-btn", href: "#/portfolio", text: "Back" }));
-    add(els.main, h("h2", { class: "editor-title", text: current.isNew ? "New project" : (record.title || "Project") }));
-    var form = h("form", { id: "editor" });
+    var form = h("form", { id: "editor", class: "dx-card" });
+    form.appendChild(h("h2", { class: "editor-title", text: current.isNew ? "New project" : (record.title || "Project") }));
     var summary = h("textarea", { name: "summary", disabled: editsLocked() });
     summary.value = record.summary || "";
     add(form,
@@ -747,7 +747,7 @@
     paintChrome();
     if (!doc) {
       clear(els.main);
-      els.main.appendChild(h("p", { class: "empty", text: "Loading…" }));
+      els.main.appendChild(h("p", { class: "empty dx-on-bg", text: "Loading…" }));
       painted = "";
       return;
     }
