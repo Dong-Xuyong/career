@@ -8,7 +8,7 @@ body.dx {
   max-width: none;
   margin: 0;
   background: transparent;
-  color: var(--dx-fg);
+  color: var(--dx-text);
   font-family: var(--dx-font);
   padding-bottom: calc(104px + env(safe-area-inset-bottom));
 }
@@ -50,7 +50,7 @@ body.dx {
   min-height: 44px;
   padding: 0 8px;
   border-radius: 999px;
-  color: var(--dx-primary);
+  color: var(--dx-accent);
   font-size: 0.85rem;
   font-weight: 650;
   text-decoration: none;
@@ -91,7 +91,7 @@ main.dx-main {
   padding: 8px 10px 8px 14px;
   border-radius: var(--dx-radius);
   background: var(--dx-card);
-  color: var(--dx-fg);
+  color: var(--dx-text);
   border: 1px solid var(--dx-border);
   box-shadow: var(--dx-shadow);
   font-weight: 650;
@@ -110,7 +110,7 @@ main.dx-main {
   border-radius: var(--dx-radius-sm);
   border: 1px solid var(--dx-border);
   background: var(--dx-card-solid);
-  color: var(--dx-fg);
+  color: var(--dx-text);
   font: inherit;
   font-weight: 650;
   text-decoration: none;
@@ -144,7 +144,7 @@ main.dx-main {
   border: 1px solid var(--dx-border);
   border-radius: var(--dx-radius);
   background: var(--dx-card);
-  color: var(--dx-fg);
+  color: var(--dx-text);
   box-shadow: var(--dx-shadow);
   -webkit-backdrop-filter: blur(var(--dx-blur));
   backdrop-filter: blur(var(--dx-blur));
@@ -160,7 +160,7 @@ main.dx-main {
   padding: 8px 12px;
   border: 0;
   background: transparent;
-  color: var(--dx-fg);
+  color: var(--dx-text);
   font: inherit;
   font-weight: 700;
   text-align: left;
@@ -175,8 +175,8 @@ main.dx-main {
   min-height: 28px;
   padding: 0 8px;
   border-radius: 999px;
-  background: var(--dx-primary-soft);
-  color: var(--dx-primary);
+  background: var(--dx-accent-soft);
+  color: var(--dx-accent);
   font-size: 0.8rem;
 }
 
@@ -193,7 +193,7 @@ main.dx-main {
   margin: 0;
   padding: 12px;
   background: var(--dx-card);
-  color: var(--dx-fg);
+  color: var(--dx-text);
   border: 1px solid var(--dx-border);
   border-radius: var(--dx-radius);
   box-shadow: var(--dx-shadow);
@@ -231,7 +231,7 @@ main.dx-main {
 }
 
 a.project-title {
-  color: var(--dx-primary);
+  color: var(--dx-accent);
 }
 
 .job-card__role,
@@ -283,8 +283,8 @@ a.job-card__url {
   min-height: 24px;
   padding: 0 8px;
   border-radius: 999px;
-  background: var(--dx-primary-soft);
-  color: var(--dx-fg);
+  background: var(--dx-accent-soft);
+  color: var(--dx-text);
   font-size: 0.72rem;
   font-weight: 700;
 }
@@ -311,7 +311,7 @@ a.job-card__url {
   border: 1px solid var(--dx-border);
   border-radius: var(--dx-radius-sm);
   background: var(--dx-card-solid);
-  color: var(--dx-fg);
+  color: var(--dx-text);
   font: inherit;
   font-size: 0.95rem;
 }
@@ -361,8 +361,8 @@ a.job-card__url {
 }
 
 .filters .seg.active {
-  background: var(--dx-primary-soft);
-  color: var(--dx-primary);
+  background: var(--dx-accent-soft);
+  color: var(--dx-accent);
   box-shadow: none;
 }
 
@@ -378,8 +378,8 @@ a.job-card__url {
 .tags li {
   padding: 4px 8px;
   border-radius: 999px;
-  background: var(--dx-primary-soft);
-  color: var(--dx-fg);
+  background: var(--dx-accent-soft);
+  color: var(--dx-text);
   font-size: 0.75rem;
   font-weight: 650;
 }
@@ -400,8 +400,8 @@ a.job-card__url {
 
 .form-actions button[type="submit"],
 .fab {
-  background: var(--dx-primary);
-  color: var(--dx-primary-fg);
+  background: var(--dx-accent);
+  color: var(--dx-accent-fg);
   border-color: transparent;
 }
 
@@ -411,7 +411,7 @@ form.dx-card {
 
 .editor-title {
   margin: 0 0 12px;
-  color: var(--dx-fg);
+  color: var(--dx-text);
   font-size: 1.25rem;
 }
 
@@ -420,7 +420,7 @@ form.dx-card {
   flex-direction: column;
   gap: 4px;
   margin: 0 0 12px;
-  color: var(--dx-fg);
+  color: var(--dx-text);
   font-size: 0.85rem;
   font-weight: 650;
 }
@@ -504,7 +504,7 @@ form.dx-card {
 }
 
 .nav-tab.active {
-  color: var(--dx-primary);
+  color: var(--dx-accent);
 }
 
 .nav-icon {
@@ -529,6 +529,6 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 textarea:focus-visible {
-  outline: 2px solid var(--dx-ring);
+  outline: 2px solid var(--dx-accent);
   outline-offset: 2px;
 }
