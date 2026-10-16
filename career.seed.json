@@ -1,0 +1,27 @@
+{
+  "app": "career",
+  "schemaVersion": 1,
+  "owner": "zoro",
+  "updatedAt": null,
+  "stages": [
+    { "id": "saved", "label": "Saved" },
+    { "id": "applied", "label": "Applied" },
+    { "id": "screening", "label": "Screening" },
+    { "id": "interview", "label": "Interview" },
+    { "id": "offer", "label": "Offer" },
+    { "id": "closed", "label": "Closed" }
+  ],
+  "jobs": [],
+  "portfolio": [
+    {
+      "id": "prj_law-wiki",
+      "title": "Law Wiki",
+      "url": "https://github.com/Dong-Xuyong/law-wiki",
+      "repo": "Dong-Xuyong/law-wiki",
+      "summary": "",
+      "tags": [],
+      "order": 1,
+      "updatedAt": "2026-10-16T00:00:00Z"
+    }
+  ]
+}

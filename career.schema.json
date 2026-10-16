@@ -1,0 +1,64 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "progress-sync/career.json",
+  "type": "object",
+  "required": ["app", "schemaVersion", "owner", "updatedAt", "stages", "jobs", "portfolio"],
+  "properties": {
+    "app": { "const": "career" },
+    "schemaVersion": { "const": 1 },
+    "owner": { "const": "zoro" },
+    "updatedAt": { "type": ["string", "null"], "format": "date-time" },
+    "stages": {
+      "description": "Board column order. Fixed ids; labels may change.",
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "label"],
+        "properties": {
+          "id": { "enum": ["saved", "applied", "screening", "interview", "offer", "closed"] },
+          "label": { "type": "string" }
+        }
+      }
+    },
+    "jobs": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "company", "role", "stage", "nextStep", "date", "link", "notes", "updatedAt"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^job_[a-z0-9]{6}$" },
+          "company": { "type": "string", "minLength": 1 },
+          "role": { "type": "string", "minLength": 1 },
+          "stage": { "enum": ["saved", "applied", "screening", "interview", "offer", "closed"] },
+          "outcome": { "enum": [null, "rejected", "withdrawn", "declined", "accepted"], "description": "Set only when stage is closed." },
+          "nextStep": { "type": "string", "description": "Free text, '' when none." },
+          "nextStepDue": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$" },
+          "date": { "type": ["string", "null"], "pattern": "^\\d{4}-\\d{2}-\\d{2}$", "description": "Date the job entered its current stage (Lisbon)." },
+          "link": { "type": "string", "description": "http(s) URL of the posting or ''." },
+          "notes": { "type": "string" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "deleted": { "type": "boolean" }
+        }
+      }
+    },
+    "portfolio": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["id", "title", "url", "summary", "tags", "order", "updatedAt"],
+        "properties": {
+          "id": { "type": "string", "pattern": "^prj_[a-z0-9-]{3,}$" },
+          "title": { "type": "string" },
+          "url": { "type": "string", "description": "Public http(s) URL." },
+          "repo": { "type": ["string", "null"], "description": "owner/name on GitHub, or null." },
+          "summary": { "type": "string" },
+          "tags": { "type": "array", "items": { "type": "string" } },
+          "order": { "type": "integer" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "deleted": { "type": "boolean" }
+        }
+      }
+    }
+  }
+}

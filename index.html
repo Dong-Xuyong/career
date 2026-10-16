@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#f6f4ef" />
+  <meta name="description" content="Career pipeline. Jobs and portfolio stay in a private sync repo." />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-title" content="Career" />
+  <meta name="format-detection" content="telephone=no" />
+  <title>Career</title>
+  <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='22' fill='%23141414'/><rect x='22' y='36' width='56' height='40' rx='6' fill='none' stroke='%232563eb' stroke-width='6'/><path d='M38 36v-6a12 12 0 0 1 24 0v6' fill='none' stroke='%232563eb' stroke-width='6'/></svg>" />
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Encode+Sans:wght@400;500;600;700&display=swap" />
+  <link rel="stylesheet" href="dong-ui/theme.css" />
+  <link rel="stylesheet" href="styles.css" />
+  <script src="dong-ui/theme.js"></script>
+</head>
+<body>
+  <header>
+    <div class="topbar-row">
+      <h1>Career</h1>
+      <span id="sync-label" aria-live="polite"></span>
+      <a class="shortlist-link" href="https://dong-xuyong.github.io/job-hunt/" target="_blank" rel="noopener">Shortlist ↗</a>
+      <a class="dong-home-link" href="https://dong-xuyong.github.io/" aria-label="Back to all apps" title="All apps"><svg viewBox="0 0 24 24" width="20" height="20" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 10.5 12 3l9 7.5"/><path d="M5 9.5V20a1 1 0 0 0 1 1h4v-6h4v6h4a1 1 0 0 0 1-1V9.5"/></svg></a>
+      <button type="button" data-dong-theme-toggle aria-label="Toggle color theme"></button>
+    </div>
+  </header>
+  <p id="demo-banner" class="banner" role="status" hidden>
+    <span>Demo data</span>
+    <button type="button" id="btn-connect">Connect sync</button>
+  </p>
+  <p id="format-banner" class="banner banner--warn" role="status" hidden>Newer data format, update the app</p>
+  <main id="main"></main>
+  <a id="fab" class="fab" href="#/job/new" hidden>+ Job</a>
+  <nav id="tabbar" aria-label="Primary">
+    <button type="button" class="nav-tab active" data-tab="board">
+      <span class="nav-icon" aria-hidden="true">▦</span>
+      <span>Board</span>
+    </button>
+    <button type="button" class="nav-tab" data-tab="list">
+      <span class="nav-icon" aria-hidden="true">☰</span>
+      <span>List</span>
+    </button>
+    <button type="button" class="nav-tab" data-tab="portfolio">
+      <span class="nav-icon" aria-hidden="true">▣</span>
+      <span>Portfolio</span>
+    </button>
+  </nav>
+  <noscript><p class="banner">Career needs JavaScript.</p></noscript>
+  <script src="dong-ui/gh-sync.js"></script>
+  <script src="core.js"></script>
+  <script src="demo.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
